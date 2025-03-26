@@ -1,10 +1,21 @@
-push constant 0
-pop argument 1
-
 push argument 0
+push constant 0
+lt
+if-goto HANDLE_NEG
+push argument 0
+goto STORE_X
+
+label HANDLE_NEG
+push argument 0
+neg
+
+label STORE_X
 pop temp 0
 push argument 0
 pop temp 1
+
+push constant 0
+pop argument 1
 
 label SQUARE_LOOP
 push temp 0
