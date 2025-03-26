@@ -1,0 +1,20 @@
+ push argument 0
+    push argument 1
+    and
+    not
+    
+    push argument 0
+    and
+    
+    push argument 1
+    push argument 0
+    and
+    not
+    
+    push argument 1
+    and
+    
+    or
+    
+    pop argument 2
+    return
