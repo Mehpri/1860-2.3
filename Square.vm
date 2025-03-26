@@ -1,25 +1,25 @@
-push constant 0   // Initialize result (y = 0)
-pop argument 1    // Store y in argument[1]
-push argument 0   // Load x (counter)
-pop temp 0        // Store x in temp 0 (counter)
+push constant 0     // Initialize result (y = 0)
+pop argument 1      // Store y in argument[1]
+push argument 0     // Load x (counter)
+pop temp 0          // Store x in temp 0 (counter)
 
 label SQUARE_LOOP
-    push temp 0    // Load counter
+    push temp 0      // Load counter
     push constant 0
-    lt             // Check if counter < 0
+    eq               // Check if counter == 0
     if-goto END_SQUARE
     
-    push argument 1 // Load current y
-    push argument 0 // Load x
-    add            // y = y + x
-    pop argument 1 // Store updated y
+    push argument 1  // Load current y
+    push argument 0  // Load x (original value)
+    add              // y = y + x
+    pop argument 1   // Store updated y
     
-    push temp 0    // Load counter
+    push temp 0      // Load counter
     push constant 1
-    sub            // Decrease counter (counter = counter - 1)
-    pop temp 0     // Store updated counter
+    sub              // Decrease counter (counter = counter - 1)
+    pop temp 0       // Store updated counter
     
-    goto SQUARE_LOOP // Repeat if counter > 0
+    goto SQUARE_LOOP // Repeat
 
 label END_SQUARE
-push argument 1 // Push result onto the stack
+push argument 1      // Push result onto the stack
