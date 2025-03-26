@@ -1,20 +1,22 @@
 push argument 0   // Load x
-push argument 0   // Duplicate x for checking sign
 if-goto NEGATIVE  
 goto NON_NEGATIVE
 
 (NEGATIVE)
-    neg          // Compute -x
-    pop argument 1 // Store |x| in argument[1]
+    push argument 0
+    neg         
+    pop argument 1 
     push constant 1
-    pop argument 2 // Set argument[2] to 1 (x was negative)
-    goto CHECK_ERROR
+    pop argument 2 
+    push constant 0
+    pop argument 3 
+    return
 
 (NON_NEGATIVE)
-    pop argument 1 // Store x in argument[1] as is
+    push argument 0
+    pop argument 1 
     push constant 0
-    pop argument 2 // Set argument[2] to 0 (x was not negative)
-
-(CHECK_ERROR)
+    pop argument 2 
     push constant 0
-    pop argument 3 // No error (argument[3] = 0)
+    pop argument 3 
+    return

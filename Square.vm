@@ -1,18 +1,5 @@
-push argument 0
-pop local 0
-push argument 0
-pop local 2
-push constant o
-pop local 1
-push argument 0
-push constant 0
-lt
-if goto NEGATE X
-goto LOOP START
-label NEGATE X
-push local 2
-neg
-pop local 2
-push local m
-neg
-pop local 0
+push argument 0  
+push argument 0   
+call Math.multiply 2  
+pop argument 1   
+push argument 1 
