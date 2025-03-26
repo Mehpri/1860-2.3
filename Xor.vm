@@ -1,17 +1,15 @@
-push argument 0
-push argument 1
-and
-not
+push argument 0   
+push argument 1  
+or               
+pop temp 0       
 
-push argument 0
-and
+push argument 0   
+push argument 1   
+and              
+pop temp 1       
 
-push argument 1
-push argument 0
-not
-and
-
-or
-
-pop argument 2
-return
+push temp 0       
+push temp 1      
+sub              
+pop argument 2   
+push argument 2  
