@@ -1,5 +1,19 @@
-push argument 0  
-push argument 0   
-call Math.multiply 2  
-pop argument 1   
+push constant 0   // Initialize result (y = 0)
+push argument 0   // Load x (counter)
+if-goto SQUARE_LOOP
+
+goto END_SQUARE
+
+(SQUARE_LOOP)
+    push argument 0   // Load x
+    push argument 1   // Load current sum (y)
+    add               // y = y + x
+    pop argument 1    // Store updated y
+    push argument 0
+    push constant 1
+    sub               // Decrease counter (x = x - 1)
+    pop argument 0
+    if-goto SQUARE_LOOP // Repeat if x > 0
+
+(END_SQUARE)
 push argument 1 
