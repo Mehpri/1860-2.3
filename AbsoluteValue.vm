@@ -2,21 +2,22 @@ push argument 0   // Load x
 if-goto NEGATIVE  
 goto NON_NEGATIVE
 
-(NEGATIVE)
+label NEGATIVE
     push argument 0
-    neg         
-    pop argument 1 
+    neg          // Compute -x
+    pop argument 1 // Store |x| in argument[1]
     push constant 1
-    pop argument 2 
+    pop argument 2 // Set argument[2] to 1 (x was negative)
     push constant 0
-    pop argument 3 
-    return
+    pop argument 3 // Set argument[3] to 0 (absolute value is computable)
+    goto END_ABS
 
-(NON_NEGATIVE)
+label NON_NEGATIVE
     push argument 0
-    pop argument 1 
+    pop argument 1 // Store x in argument[1] as is
     push constant 0
-    pop argument 2 
+    pop argument 2 // Set argument[2] to 0 (x was not negative)
     push constant 0
-    pop argument 3 
-    return
+    pop argument 3 // Set argument[3] to 0 (absolute value is computable)
+
+label END_ABS
