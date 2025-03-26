@@ -1,4 +1,6 @@
-push argument 0
-push argument 0
-mul
+push argument 0    
+push argument 0    
+mul               
+pop argument 1     
+push argument 1    
 return
