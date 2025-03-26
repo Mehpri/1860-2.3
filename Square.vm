@@ -3,6 +3,8 @@ pop argument 1
 
 push argument 0
 pop temp 0
+push argument 0
+pop temp 1
 
 label SQUARE_LOOP
 push temp 0
@@ -11,7 +13,7 @@ eq
 if-goto END_SQUARE
 
 push argument 1
-push argument 0
+push temp 1
 add
 pop argument 1
 
