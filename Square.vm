@@ -1,0 +1,4 @@
+push argument 0
+push argument 0
+mul
+return
