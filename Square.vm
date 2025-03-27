@@ -1,39 +1,39 @@
 push argument 0
 push constant 0
 lt
-if-goto HANDLE_NEG
+if-goto handle_negative
 push argument 0
-goto STORE_X
+goto store_value
 
-label HANDLE_NEG
+label handle_negative
 push argument 0
 neg
 
-label STORE_X
-pop temp 0
+label store_value
+pop temp 0       
 push argument 0
-pop temp 1
+pop temp 1       
 
 push constant 0
-pop argument 1
+pop argument 1  
 
-label SQUARE_LOOP
+label multiply_loop
 push temp 0
 push constant 0
 eq
-if-goto END_SQUARE
+if-goto finish
 
 push argument 1
 push temp 1
 add
-pop argument 1
+pop argument 1   
 
 push temp 0
 push constant 1
 sub
-pop temp 0
+pop temp 0       
 
-goto SQUARE_LOOP
+goto multiply_loop
 
-label END_SQUARE
+label finish
 push argument 1
