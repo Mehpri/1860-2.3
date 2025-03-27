@@ -1,39 +1,41 @@
 push argument 0
+pop local 0
+push argument 0
+pop local 2
+push constant 0
+pop local 1
+
+push argument 0
 push constant 0
 lt
-if-goto handle_negative
-push argument 0
-goto store_value
+if-goto fix_neg
+goto multiply
 
-label handle_negative
-push argument 0
+label fix_neg
+push local 2
 neg
+pop local 2
+push local 0
+neg
+pop local 0
 
-label store_value
-pop temp 0       
-push argument 0
-pop temp 1       
-
-push constant 0
-pop argument 1  
-
-label multiply_loop
-push temp 0
+label multiply
+push local 2
 push constant 0
 eq
 if-goto finish
 
-push argument 1
-push temp 1
+push local 1
+push local 0
 add
-pop argument 1   
+pop local 1
 
-push temp 0
+push local 2
 push constant 1
 sub
-pop temp 0       
+pop local 2
 
-goto multiply_loop
+goto multiply
 
 label finish
-push argument 1
+push local 1
